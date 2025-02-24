@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#login-container, #signup-container, #main-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.room-btn {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.room-btn.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#seat-container table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#seat-container td {
+    width: 10%;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#seat-container td.reserved {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+#notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
