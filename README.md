@@ -1,13 +1,16 @@
 # fcwj245
 '열람실 예약' 
 
-학교 열람실의 좌석 예약 문제를 해결하고, 학생들에게 효율적이고 사용자 친화적인 시스템을 제공하는 것을 목표로 한 프로젝트입니다.
+학교 열람실의 좌석 예약 문제를 해결하고, 학생들에게 효율적이며 사용자 친화적인 시스템을 제공하는 것을 목표로 한 프로젝트입니다.
+
 
 #프로젝트 계획 
 
 학교 열람실을 이용하면서 불편함을 느낀 경험에서 출발하여, 보다 효율적인 좌석 예약 시스템을 개발하게 되었습니다. 기존 열람실 운영 방식에서는 다음과 같은 문제점이 자주 발생했습니다.
 
-- 좌석 현황 확인 불가: 공식적인 열람실 앱이 없어, 시험 기간 등 사람이 몰리는 시기에 빈자리를 찾기 어려워 헛걸음하는 경우가 많았습니다.
+- 온라인 예약 불가: 공식적인 열람실 앱이 없어 직접 방문해야만 예약을 할 수 있었습니다.
+
+- 좌석 현황 확인 불가: 공식적인 열람실 앱이 없어 시험 기간 등 사람이 몰리는 시기에 빈자리를 찾기 어려워 헛걸음하는 경우가 많았습니다.
 
 - 비효율적인 입·퇴실 및 연장 시스템:
 입실·퇴실·연장 처리를 키오스크에서만 가능하도록 운영되어, 퇴실을 깜빡하고 자리를 비워도 그대로 예약 상태로 유지되는 문제가 있었습니다.
@@ -15,6 +18,7 @@
 이러한 불편함을 해소하기 위해, 실시간 좌석 예약 및 관리 시스템을 구축했습니다.
 
 이 시스템은 GPS 기반 인증을 통해 사용자가 열람실 1km 이내에 있을 때만 좌석을 예약할 수 있도록 하며, 웹 애플리케이션을 통해 보다 직관적인 좌석 관리가 가능하도록 설계되었습니다. 백엔드는 Node.js (Express) + MySQL, 프론트엔드는 HTML + JavaScript를 사용합니다.
+
 
 #기능 설명
 
@@ -34,49 +38,48 @@ displayNotification(message): 사용자에게 필요한 알림을 화면에 표�
 
 setInterval(checkExpiredSeats, 60 * 1000): 1분마다 좌석의 이용 시간을 확인하고, 만료된 좌석에 대한 퇴실 알림을 처리합니다.
 
+
 #실행 방법
 
 1. 서버 실행
    
-cd "C:\Users\WJ\OneDrive\바탕 화면\server" (프로젝트 폴더로 이동)
+   cd "C:\Users\WJ\OneDrive\바탕 화면\server" (프로젝트 폴더로 이동)
  
 2. 필요한 패키지 설치
    
-npm install
+   npm install
 
 3.MySQL 데이터베이스 설정
 
-CREATE DATABASE seat_reservations;
+   CREATE DATABASE seat_reservations;
 
-USE seat_reservations;
+   USE seat_reservations;
 
-CREATE TABLE users (
+   CREATE TABLE users (
 
-    id INT AUTO_INCREMENT PRIMARY KEY,
+       id INT AUTO_INCREMENT PRIMARY KEY,
     
-    username VARCHAR(255) NOT NULL UNIQUE,
+       username VARCHAR(255) NOT NULL UNIQUE,
     
-    password VARCHAR(255) NOT NULL
+       password VARCHAR(255) NOT NULL
     
-);  
-(MySQL 실행 후 입력)
+   );  
+   (MySQL 실행 후 입력)
 
+4. .env 파일 생성 후 MySQL 정보 설정
 
-.env 파일 생성 후 MySQL 정보 설정
+   DB_HOST=localhost
 
-DB_HOST=localhost
+   DB_USER=root
 
-DB_USER=root
+   DB_PASSWORD=yourpassword
 
-DB_PASSWORD=yourpassword
+   DB_NAME=seat_reservations
 
-DB_NAME=seat_reservations
+5.서버 실행
 
+   node server.js
 
-4.서버 실행
+6. 클라이언트 실행 (프론트엔드)
 
-node server.js
-
-5. 클라이언트 실행 (프론트엔드)
-
-index.html 파일을 더블 클릭하여 실행
+   index.html 파일을 더블 클릭하여 실행
