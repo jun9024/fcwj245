@@ -4,7 +4,7 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const app = express();
-const port = 3020;
+const port = 3020; //포트번호 바꿔야함
 
 // MySQL 연결 설정
 const db = mysql.createConnection({
