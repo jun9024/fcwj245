@@ -29,7 +29,7 @@ function checkLocation() {
         const roomLon = studyRooms[selectedRoom].lon;
         const distance = haversine(userLat, userLon, roomLat, roomLon);
 
-        if (distance > 30) { // 1km 이내만 예약 가능
+        if (distance > 1) { // 1km 이내만 예약 가능
             document.getElementById("message").innerHTML = `🚫 ${studyRooms[selectedRoom].name}은 현재 위치에서 ${distance.toFixed(2)}km 떨어져 있습니다. 예약이 불가능합니다.`;
             document.getElementById("seat-container").innerHTML = "";
         } else {
